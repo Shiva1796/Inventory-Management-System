@@ -13,7 +13,7 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 h1 {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   width: 100vw;
   text-align: center;
   background-color: var(--main-color);
@@ -28,6 +28,7 @@ body {
   background-color: var(--background--color);
 }
 .dashboard {
+  overflow-y: hidden;
   height: 80vh;
   width: 100vw;
   display: flex;
