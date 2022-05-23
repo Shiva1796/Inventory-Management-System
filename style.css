@@ -28,7 +28,7 @@ body {
   background-color: var(--background--color);
 }
 .dashboard {
-  height: 80vh;
+  height: 50vh;
   width: 100vw;
   display: flex;
   align-items: flex-start;
