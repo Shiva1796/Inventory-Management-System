@@ -1,0 +1,114 @@
+:root {
+  --main-color: #0f1108;
+  --secondary--color: #c7e8f3;
+  --background--color: white;
+  --light-color: white;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+h1 {
+  margin-bottom: 2rem;
+  width: 100vw;
+  text-align: center;
+  background-color: var(--main-color);
+  color: var(--light-color);
+  padding: 10px;
+}
+body {
+  display: flex;
+  color: var(--main-color);
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background--color);
+}
+.dashboard {
+  height: 40vh;
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bom-generator form {
+  display: flex;
+  flex-direction: column;
+}
+.bom-generator input {
+  padding: 5px;
+  background-color: var(--secondary--color);
+  width: 20rem;
+}
+.bom-generator label {
+  margin-top: 10px;
+}
+.data-inventory {
+  padding: 5px;
+  margin-top: 5px;
+}
+#submitItem {
+  margin-top: 10px;
+  width: 5rem;
+  padding: 5px;
+}
+
+.display {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+#item {
+  color: black;
+  width: 10rem;
+  padding: 10px;
+  height: 15rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  border: 1px black solid;
+  border-radius: 10px;
+  transition: 250ms;
+}
+/* #visible:hover {
+  background-color: var(--main-color);
+  color: white;
+} */
+#remove {
+  background-color: var(--light-color);
+  border: black solid 0.5px;
+  border-radius: 5px;
+  padding: 2px;
+}
+#remove:hover {
+  background-color: rgb(253, 103, 103);
+}
+#calculate {
+  margin-left: 4px;
+  background-color: var(--light-color);
+  border: black solid 0.5px;
+  border-radius: 5px;
+  padding: 2px;
+}
+#calculate:hover {
+  background-color: rgb(119, 233, 119);
+}
+#calculateResult {
+  margin-top: 5px;
+  width: 7rem;
+  height: 1.5rem;
+  color: black;
+  border: 0.5px solid black;
+  border-radius: 5px;
+}

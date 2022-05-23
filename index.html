@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Inventory Management</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="main">
+      <h1>Please fill the input fields to create the Bill of Material</h1>
+      <div class="dashboard">
+        <div class="bom-generator">
+          <form>
+            <label for="part-number">Part Number</label>
+            <input
+              class="data-inventory"
+              type="text"
+              id="part-number"
+              placeholder="Part Number: 0000"
+            />
+            <label for="quantity">Quantity</label>
+            <input
+              class="data-inventory"
+              type="number"
+              id="quantity"
+              placeholder="How many do we have in stock?"
+            />
+            <label for="cost">Cost</label>
+            <input
+              data-inventory
+              type="number"
+              id="cost"
+              placeholder="How much does one item cost?"
+            />
+            <label for="weight">Weight</label>
+            <input
+              class="data-inventory"
+              type="number"
+              id="weight"
+              placeholder="How much does a single item weigh?"
+            />
+            <label for="finish">Finish</label>
+            <input
+              class="data-inventory"
+              type="number"
+              id="finish"
+              placeholder="What finish does the item have? ex 2b,#4"
+            />
+          </form>
+          <button id="submitItem">Submit</button>
+        </div>
+      </div>
+      <div class="display"></div>
+    </section>
+    <script src="script.js" async defer></script>
+  </body>
+</html>
