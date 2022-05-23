@@ -28,10 +28,10 @@ body {
   background-color: var(--background--color);
 }
 .dashboard {
-  height: 40vh;
-  width: 80vw;
+  height: 80vh;
+  width: 100vw;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 .bom-generator form {
@@ -58,7 +58,7 @@ body {
 
 .display {
   width: 100vw;
-  height: 60vh;
+  height: 40vh;
   display: flex;
   align-content: flex-start;
   align-items: center;
