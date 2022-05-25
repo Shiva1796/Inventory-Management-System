@@ -1,3 +1,4 @@
+"use strict";
 const partNumberHTML = document.getElementById("part-number");
 const quantityHTML = document.getElementById("quantity");
 const costHTML = document.getElementById("cost");
@@ -40,28 +41,28 @@ const newItems = function () {
 };
 
 //Function that checks wether the input fields are filled or not
-function inputLengthChecker() {}
 
 function displayItems() {
   //Creating a current item variable to be used in specific tasks such as removing an item card
-  let currentItem;
-  currentItem = inventoryItems.find(
-    (item) => item.partNumber === partNumberHTML.value
-  );
-
-  //   console.log(currentItem);
 
   itemDisplay.innerHTML = "";
   for (let i = 0; i < inventoryItems.length; i++) {
     let item = document.createElement("div");
-    item.setAttribute("id", "item");
+    item.setAttribute("class", "item");
 
     //Using a template literal to edit the inner html of the newly generated item card
-    item.innerHTML = `<div> Part no. : ${inventoryItems[i].partNumber}</div>
+    item.innerHTML = `<div> Part no. : ${inventoryItems[
+      i
+    ].partNumber.toUpperCase()}</div>
     <div> Quantity : ${inventoryItems[i].quantity}</div>
     <div> Cost : $${inventoryItems[i].cost}</div>
     <div> Weight : ${inventoryItems[i].weight} lbs</div>
-    <div> Finish : ${inventoryItems[i].finish}</div>`;
+    <div> Finish : ${inventoryItems[i].finish}</div>
+    <div> Total Cost :  $ ${
+      inventoryItems[i].quantity *
+      inventoryItems[i].cost *
+      inventoryItems[i].weight
+    }`;
     itemDisplay.append(item);
 
     let cardFunctions = document.createElement("div");
@@ -73,34 +74,31 @@ function displayItems() {
     remove.innerHTML = "Remove";
     cardFunctions.append(remove);
 
-    let calculate = document.createElement("button");
-    calculate.setAttribute("id", "calculate");
-    calculate.innerHTML = "Calculate";
-    cardFunctions.append(calculate);
-
-    let calculateResult = document.createElement("div");
-    calculateResult.setAttribute("id", "calculateResult");
-    cardFunctions.append(calculateResult);
-
-    //Adding a remove button and calculate button to calculate the cost of each item depending on the parameters
     remove.addEventListener("click", function () {});
-
-    calculate.addEventListener("click", function () {
-      calculateResult.textContent = `$ ${Math.trunc(
-        currentItem.quantity * (currentItem.weight * 0.1) * currentItem.cost
-      )}`;
-      console.log(currentItem);
-    });
   }
 }
 
 //Pressing the submit button will execute tasks
-submitItem.addEventListener("click", function () {
-  newItems();
-  displayItems(itemDisplay);
+submitItem.addEventListener("click", function (e) {
+  e.preventDefault();
+  inputLengthChecker();
 });
+
+function inputLengthChecker() {
+  if (
+    partNumberHTML.value == "" ||
+    quantityHTML.value <= 0 ||
+    costHTML.value <= 0 ||
+    weightHTML.value <= 0
+  ) {
+    alert(
+      "Please input all fields and make sure no values are negative and try again"
+    );
+  } else {
+    newItems();
+    displayItems(itemDisplay);
+  }
+}
 
 //InventoryItems is the array where different items will be stored in real time
 let inventoryItems = [];
-// console.log(inventoryItems);
-// console.log(inventoryItems.Item);
