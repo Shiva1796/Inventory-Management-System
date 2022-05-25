@@ -7,16 +7,7 @@ const finishHTML = document.getElementById("finish");
 const inventoryHTML = document.querySelectorAll(".data-inventory");
 const submitItem = document.getElementById("submitItem");
 const itemDisplay = document.querySelector(".display");
-
-// class Item {
-//   constructor(partNumber, quantity, cost, weight, finish) {
-//     (this.partNumber = partNumber),
-//       (this.quantity = Number(quantity)),
-//       (this.cost = Number(cost)),
-//       (this.weight = Number(weight)),
-//       (this.finish = finish);
-//   }
-// }
+const viewToggle = document.querySelector("#view");
 
 //Function to generate new items from user input
 const newItems = function () {
@@ -29,18 +20,7 @@ const newItems = function () {
   };
 
   inventoryItems.push(items);
-  //   inventoryItems.push(
-  //     new Item(
-  //       partNumberHTML.value,
-  //       Number(quantityHTML.value),
-  //       Number(costHTML.value),
-  //       Number(weightHTML.value),
-  //       finishHTML.value
-  //     )
-  //   );
 };
-
-//Function that checks wether the input fields are filled or not
 
 function displayItems() {
   //Creating a current item variable to be used in specific tasks such as removing an item card
@@ -78,12 +58,20 @@ function displayItems() {
   }
 }
 
-//Pressing the submit button will execute tasks
-submitItem.addEventListener("click", function (e) {
+viewToggle.addEventListener("click", function (e) {
   e.preventDefault();
-  inputLengthChecker();
+  const items = document.querySelectorAll(".item");
+  items.forEach((item) => item.classList.toggle("card"));
 });
 
+//Pressing the submit button will execute tasks
+submitItem.addEventListener("click", function () {
+  inputLengthChecker();
+  // newItems();
+  // displayItems();
+});
+
+//Function that checks wether the input fields are filled or not
 function inputLengthChecker() {
   if (
     partNumberHTML.value == "" ||
@@ -96,7 +84,7 @@ function inputLengthChecker() {
     );
   } else {
     newItems();
-    displayItems(itemDisplay);
+    displayItems();
   }
 }
 

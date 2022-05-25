@@ -28,12 +28,14 @@ body {
   background-color: var(--background--color);
 }
 .dashboard {
-  height: 50vh;
+  height: 40vh;
   width: 100vw;
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  border-bottom: 10px black solid;
 }
+
 .bom-generator form {
   display: flex;
   flex-direction: column;
@@ -55,10 +57,29 @@ body {
   width: 5rem;
   padding: 5px;
 }
+#view {
+  margin-top: 10px;
+  width: 5rem;
+  padding: 5px;
+}
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 98vw;
+  padding: 2px;
+  border-bottom: 0.5px black solid;
+  font-size: 12px;
+}
+.item div {
+  width: 14vw;
+}
 
 .display {
+  margin-top: 0.5vh;
   width: 100vw;
-  height: 40vh;
+  height: 55vh;
   display: flex;
   align-content: flex-start;
   align-items: center;
@@ -67,7 +88,7 @@ body {
   gap: 5px;
 }
 
-.item {
+.card {
   color: black;
   width: max-content;
   padding: 10px;
@@ -97,22 +118,4 @@ body {
 }
 #remove:hover {
   background-color: rgb(253, 103, 103);
-}
-#calculate {
-  margin-left: 4px;
-  background-color: var(--light-color);
-  border: black solid 0.5px;
-  border-radius: 5px;
-  padding: 2px;
-}
-#calculate:hover {
-  background-color: rgb(119, 233, 119);
-}
-#calculateResult {
-  margin-top: 5px;
-  width: 7rem;
-  height: 1.5rem;
-  color: black;
-  border: 0.5px solid black;
-  border-radius: 5px;
 }
