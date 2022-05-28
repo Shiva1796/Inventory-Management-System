@@ -7,6 +7,10 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/abe9c54cc4.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <section class="main">
@@ -45,13 +49,19 @@
             <label for="finish">Finish</label>
             <input
               class="data-inventory"
-              type="number"
+              type="text"
               id="finish"
               placeholder="What finish does the item have? ex 2b,#4"
             />
           </form>
-          <button id="submitItem">Submit</button>
-          <button id="view">View</button>
+          <div class="btns">
+            <button id="submitItem">
+              <i class="fa-solid fa-square-arrow-up-right"></i> Submit
+            </button>
+            <button type="button" id="view">
+              <i class="fa-solid fa-list"></i> View
+            </button>
+          </div>
         </div>
       </div>
       <div class="display"></div>
