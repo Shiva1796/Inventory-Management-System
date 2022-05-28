@@ -26,6 +26,7 @@ function displayItems() {
   //Creating a current item variable to be used in specific tasks such as removing an item card
 
   itemDisplay.innerHTML = "";
+  itemDisplay.length = inventoryItems.length;
   for (let i = 0; i < inventoryItems.length; i++) {
     let item = document.createElement("div");
     item.setAttribute("class", "item");
@@ -44,49 +45,45 @@ function displayItems() {
       inventoryItems[i].weight
     }`;
     itemDisplay.append(item);
-
-    let cardFunctions = document.createElement("div");
-    cardFunctions.setAttribute("id", "cardFunctions");
-    item.append(cardFunctions);
-
     let remove = document.createElement("button");
     remove.setAttribute("id", "remove");
     remove.innerHTML = "Remove";
-    cardFunctions.append(remove);
+    item.append(remove);
 
-    remove.addEventListener("click", function () {});
+    remove.addEventListener("click", function () {
+      item.remove(inventoryItems.splice([i], 1));
+    });
   }
 }
 
-viewToggle.addEventListener("click", function (e) {
-  e.preventDefault();
+viewToggle.addEventListener("click", function () {
   const items = document.querySelectorAll(".item");
   items.forEach((item) => item.classList.toggle("card"));
 });
 
 //Pressing the submit button will execute tasks
 submitItem.addEventListener("click", function () {
-  inputLengthChecker();
-  // newItems();
-  // displayItems();
+  // inputLengthChecker();
+  newItems();
+  displayItems();
 });
 
 //Function that checks wether the input fields are filled or not
-function inputLengthChecker() {
-  if (
-    partNumberHTML.value == "" ||
-    quantityHTML.value <= 0 ||
-    costHTML.value <= 0 ||
-    weightHTML.value <= 0
-  ) {
-    alert(
-      "Please input all fields and make sure no values are negative and try again"
-    );
-  } else {
-    newItems();
-    displayItems();
-  }
-}
+// function inputLengthChecker() {
+//   if (
+//     partNumberHTML.value == "" ||
+//     quantityHTML.value <= 0 ||
+//     costHTML.value <= 0 ||
+//     weightHTML.value <= 0
+//   ) {
+//     alert(
+//       "Please input all fields and make sure no values are negative and try again"
+//     );
+//   } else {
+//     newItems();
+//     displayItems();
+//   }
+// }
 
 //InventoryItems is the array where different items will be stored in real time
 let inventoryItems = [];
