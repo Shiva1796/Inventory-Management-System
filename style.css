@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap");
 :root {
   --main-color: #0f1108;
   --secondary--color: #c7e8f3;
@@ -27,6 +28,23 @@ body {
   justify-content: center;
   background-color: var(--background--color);
 }
+
+.swal-overlay {
+  background-color: #0f1108b3;
+}
+.swal-modal {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid white;
+  border-radius: 20px;
+}
+.swal-title {
+  font-size: 25px;
+}
+.swal-text {
+  font-size: 15px;
+  text-align: center;
+}
+
 .dashboard {
   height: min-content;
   width: 100vw;
@@ -107,25 +125,6 @@ body {
   flex-wrap: wrap;
 }
 
-.card {
-  color: black;
-  width: max-content;
-  padding: 10px;
-  height: 15rem;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
-  border: 1px black solid;
-  border-radius: 10px;
-  transition: 250ms;
-  font-size: 12px;
-}
-/* #visible:hover {
-  background-color: var(--main-color);
-  color: white;
-} */
 #remove {
   border: none;
   transition: 250ms;

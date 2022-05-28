@@ -1,4 +1,9 @@
 "use strict";
+const partNumberHTML = document.getElementById("part-number");
+const quantityHTML = document.getElementById("quantity");
+const costHTML = document.getElementById("cost");
+const weightHTML = document.getElementById("weight");
+const finishHTML = document.getElementById("finish");
 const inventoryHTML = document.querySelectorAll(".data-inventory");
 const submitItem = document.getElementById("submitItem");
 const itemDisplay = document.querySelector(".display");
@@ -6,11 +11,6 @@ const viewToggle = document.querySelector("#view");
 
 //Function to generate new items from user input
 const newItems = function () {
-  const partNumberHTML = document.getElementById("part-number");
-  const quantityHTML = document.getElementById("quantity");
-  const costHTML = document.getElementById("cost");
-  const weightHTML = document.getElementById("weight");
-  const finishHTML = document.getElementById("finish");
   let items = {
     partNumber: partNumberHTML.value,
     quantity: Number(quantityHTML.value),
@@ -42,6 +42,7 @@ function displayItems() {
       inventoryItems[i].weight
     }`;
     itemDisplay.append(item);
+
     let remove = document.createElement("button");
     remove.setAttribute("id", "remove");
     remove.innerHTML = '<i class="fa-2x fa-solid fa-delete-left"></i>';
@@ -53,11 +54,17 @@ function displayItems() {
   }
 }
 
-viewToggle.addEventListener("click", function () {
-  const items = document.querySelectorAll(".item");
-  items.forEach((item) => item.classList.toggle("card"));
-});
-
+function clearFields() {
+  if ((submitItem.click = true)) {
+    partNumberHTML.value = "";
+    quantityHTML.value = "";
+    costHTML.value = "";
+    weightHTML.value = "";
+    finishHTML.value = "";
+  } else {
+    return;
+  }
+}
 //Pressing the submit button will execute tasks
 submitItem.addEventListener("click", function () {
   inputLengthChecker();
@@ -67,22 +74,21 @@ submitItem.addEventListener("click", function () {
 
 // Function that checks wether the input fields are filled or not
 function inputLengthChecker() {
-  const partNumberHTML = document.getElementById("part-number");
-  const quantityHTML = document.getElementById("quantity");
-  const costHTML = document.getElementById("cost");
-  const weightHTML = document.getElementById("weight");
   if (
     partNumberHTML.value == "" ||
     quantityHTML.value <= 0 ||
     costHTML.value <= 0 ||
     weightHTML.value <= 0
   ) {
-    alert(
-      "Please input all fields and make sure no values are negative and try again"
-    );
+    swal({
+      title: "Check Input Fields",
+      text: "Please input all fields and make sure no values are negative and try again",
+      icon: "info",
+    });
   } else {
     newItems();
     displayItems();
+    clearFields();
   }
 }
 
