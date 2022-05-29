@@ -28,6 +28,12 @@ body {
   justify-content: center;
   background-color: var(--background--color);
 }
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .swal-overlay {
   background-color: #0f1108b3;
@@ -49,9 +55,25 @@ body {
   height: min-content;
   width: 100vw;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   border-bottom: 5px black solid;
+}
+.search-bar {
+  transform: translateX(40vw);
+  margin-right: 5rem;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-bar label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
 }
 
 .bom-generator form {
@@ -130,7 +152,19 @@ body {
   transition: 250ms;
   background-color: transparent;
   padding: 2px;
+  margin-right: 10px;
 }
 #remove:hover {
   color: rgba(255, 38, 38, 0.991);
+}
+
+#edit {
+  border: none;
+  transition: 250ms;
+  background-color: transparent;
+  padding: 2px;
+  margin-right: 10px;
+}
+#edit:hover {
+  color: rgba(38, 255, 118, 0.991);
 }

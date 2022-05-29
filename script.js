@@ -4,10 +4,9 @@ const quantityHTML = document.getElementById("quantity");
 const costHTML = document.getElementById("cost");
 const weightHTML = document.getElementById("weight");
 const finishHTML = document.getElementById("finish");
-const inventoryHTML = document.querySelectorAll(".data-inventory");
 const submitItem = document.getElementById("submitItem");
 const itemDisplay = document.querySelector(".display");
-const viewToggle = document.querySelector("#view");
+const searchBar = document.querySelector("#search");
 
 //Function to generate new items from user input
 const newItems = function () {
@@ -18,8 +17,26 @@ const newItems = function () {
     weight: Number(weightHTML.value),
     finish: finishHTML.value,
   };
-  inventoryItems.push(items);
+
+  function existingInputCheck() {
+    const parts = inventoryItems.map(function (part) {
+      return part.partNumber;
+    });
+    if (parts.includes(partNumberHTML.value)) {
+      swal("Similar part already exists");
+    } else {
+      inventoryItems.push(items);
+    }
+  }
+  existingInputCheck();
 };
+
+// searchBar.addEventListener("input", function (e) {
+//   const value = e.target.value.toUpperCase();
+//   const parts = inventoryItems.map(function (part) {
+//     return part.partNumber;
+//   });
+// });
 
 function displayItems() {
   itemDisplay.innerHTML = "";
@@ -32,7 +49,7 @@ function displayItems() {
     item.innerHTML = `<div> Part no. : ${inventoryItems[
       i
     ].partNumber.toUpperCase()}</div>
-    <div> Quantity : ${inventoryItems[i].quantity}</div>
+    <div>Quantity : ${inventoryItems[i].quantity}</div>
     <div> Cost : $${inventoryItems[i].cost}</div>
     <div> Weight : ${inventoryItems[i].weight} lbs</div>
     <div> Finish : ${inventoryItems[i].finish}</div>
@@ -43,9 +60,29 @@ function displayItems() {
     }`;
     itemDisplay.append(item);
 
+    let edit = document.createElement("button");
+    edit.setAttribute("id", "edit");
+    edit.innerHTML = '<i class="fa-2x fa-solid fa-pen-to-square"></i>';
+    item.append(edit);
+
+    // edit.addEventListener("click", function () {
+    //   item.innerHTML = `<div> Part no. : ${inventoryItems[
+    //     i
+    //   ].partNumber.toUpperCase()}</div>
+    //   <div>Quantity : <input type="number"id="quantity"/></div>
+    //   <div> Cost : $<input type="number" id="cost"/></div>
+    //   <div> Weight : <input type="number"/ id="weight"> lbs</div>
+    //   <div> Finish : <input type="text"/></div>`;
+
+    //   let complete = document.createElement("button");
+    //   edit.setAttribute("id", "complete");
+    //   edit.innerHTML = '<i class="fa-2x fa-solid fa-pen-to-square"></i>';
+    //   item.children.append(complete);
+    // });
+
     let remove = document.createElement("button");
     remove.setAttribute("id", "remove");
-    remove.innerHTML = '<i class="fa-2x fa-solid fa-delete-left"></i>';
+    remove.innerHTML = '<i class=" fa-2x fa-solid fa-trash"></i>';
     item.append(remove);
 
     remove.addEventListener("click", function () {
