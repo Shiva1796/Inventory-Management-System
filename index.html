@@ -17,12 +17,6 @@
     <section class="main">
       <h1>Please fill the input fields to create the Bill of Material</h1>
       <div class="dashboard">
-        <div class="search-bar">
-          <label for="search"
-            >Search<i class="fa-solid fa-magnifying-glass"></i></i
-          ></label>
-          <input type="search" id="search" placeholder="" />
-        </div>
         <div class="bom-generator">
           <form>
             <label for="part-number">Part Number</label>
@@ -53,21 +47,18 @@
               id="weight"
               placeholder="How much does a single item weigh?"
             />
-            <label for="finish">Finish</label>
+            <label for="comments">Comments</label>
             <input
               class="data-inventory"
               type="text"
-              id="finish"
-              placeholder="What finish does the item have? ex 2b,#4"
+              id="comments"
+              placeholder="Any special instructions can go here."
             />
           </form>
           <div class="btns">
             <button id="submitItem">
               <i class="fa-solid fa-square-arrow-up-right"></i> Submit
             </button>
-            <!-- <button type="button" id="view">
-              <i class="fa-solid fa-list"></i> View
-            </button> -->
           </div>
         </div>
       </div>

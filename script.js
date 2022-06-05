@@ -3,7 +3,7 @@ const partNumberHTML = document.getElementById("part-number");
 const quantityHTML = document.getElementById("quantity");
 const costHTML = document.getElementById("cost");
 const weightHTML = document.getElementById("weight");
-const finishHTML = document.getElementById("finish");
+const commentsHTML = document.getElementById("comments");
 const submitItem = document.getElementById("submitItem");
 const itemDisplay = document.querySelector(".display");
 const searchBar = document.querySelector("#search");
@@ -15,7 +15,7 @@ const newItems = function () {
     quantity: Number(quantityHTML.value),
     cost: Number(costHTML.value),
     weight: Number(weightHTML.value),
-    finish: finishHTML.value,
+    comments: commentsHTML.value,
   };
 
   function existingInputCheck() {
@@ -31,13 +31,6 @@ const newItems = function () {
   existingInputCheck();
 };
 
-// searchBar.addEventListener("input", function (e) {
-//   const value = e.target.value.toUpperCase();
-//   const parts = inventoryItems.map(function (part) {
-//     return part.partNumber;
-//   });
-// });
-
 function displayItems() {
   itemDisplay.innerHTML = "";
   itemDisplay.length = inventoryItems.length;
@@ -52,33 +45,13 @@ function displayItems() {
     <div>Quantity : ${inventoryItems[i].quantity}</div>
     <div> Cost : $${inventoryItems[i].cost}</div>
     <div> Weight : ${inventoryItems[i].weight} lbs</div>
-    <div> Finish : ${inventoryItems[i].finish}</div>
+    <div> Comments : ${inventoryItems[i].comments}</div>
     <div> Total Cost :  $ ${
       inventoryItems[i].quantity *
       inventoryItems[i].cost *
       inventoryItems[i].weight
     }`;
     itemDisplay.append(item);
-
-    let edit = document.createElement("button");
-    edit.setAttribute("id", "edit");
-    edit.innerHTML = '<i class="fa-2x fa-solid fa-pen-to-square"></i>';
-    item.append(edit);
-
-    // edit.addEventListener("click", function () {
-    //   item.innerHTML = `<div> Part no. : ${inventoryItems[
-    //     i
-    //   ].partNumber.toUpperCase()}</div>
-    //   <div>Quantity : <input type="number"id="quantity"/></div>
-    //   <div> Cost : $<input type="number" id="cost"/></div>
-    //   <div> Weight : <input type="number"/ id="weight"> lbs</div>
-    //   <div> Finish : <input type="text"/></div>`;
-
-    //   let complete = document.createElement("button");
-    //   edit.setAttribute("id", "complete");
-    //   edit.innerHTML = '<i class="fa-2x fa-solid fa-pen-to-square"></i>';
-    //   item.children.append(complete);
-    // });
 
     let remove = document.createElement("button");
     remove.setAttribute("id", "remove");
@@ -105,8 +78,6 @@ function clearFields() {
 //Pressing the submit button will execute tasks
 submitItem.addEventListener("click", function () {
   inputLengthChecker();
-  // newItems();
-  // displayItems();
 });
 
 // Function that checks wether the input fields are filled or not
